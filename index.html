@@ -1,11 +1,471 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html lang="fr-CA">
 <head>
-  <meta charset="UTF-8">
-  <title>Groupe MDQ</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Groupe MDQ — Mécanique mobile. Entretien préventif et mécanique automobile directement chez vous ou votre entreprise. Service le soir et la fin de semaine dans la région de Saint-Césaire, Saint-Hyacinthe, Granby et Saint-Jean-sur-Richelieu.">
+  <meta name="theme-color" content="#0b0c0e">
+  <title>Groupe MDQ — Votre flotte roule. Votre entreprise aussi.</title>
+  <link rel="icon" href="favicon.png">
+  <style>
+    :root{
+      --black:#0b0c0e; --black2:#15171a; --orange:#f28a00; --yellow:#ffbf18;
+      --white:#fff; --off:#f6f6f3; --text:#17191b; --muted:#687078;
+      --line:#e2e3df; --radius:20px; --shadow:0 18px 50px rgba(0,0,0,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--text);background:#fff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55}
+    a{color:inherit}
+    .topbar{background:var(--black);color:#e9e9e9;text-align:center;padding:9px 16px;font-size:.86rem}
+    .topbar strong{color:var(--yellow)}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,12,14,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+    nav{max-width:1160px;margin:auto;padding:9px 20px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:900;letter-spacing:.03em}
+    .brand img{width:48px;height:48px;object-fit:contain}
+    .brand small{display:block;color:#aeb3b8;font-size:.66rem;letter-spacing:.15em}
+    .navlinks{display:flex;align-items:center;gap:21px}
+    .navlinks a{color:#eee;text-decoration:none;font-size:.9rem}
+    .navlinks a:hover{color:var(--yellow)}
+    .nav-cta{background:var(--orange);padding:9px 14px;border-radius:10px;font-weight:800}
+
+    .hero{color:#fff;background:
+      radial-gradient(circle at 78% 15%,rgba(242,138,0,.18),transparent 28%),
+      linear-gradient(135deg,#090a0c,#181a1d 70%,#0e0f11);overflow:hidden}
+    .hero-inner{max-width:1160px;margin:auto;min-height:670px;padding:78px 20px 82px;display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--yellow);font-size:.74rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+    .eyebrow:before{content:"";width:28px;height:3px;border-radius:3px;background:var(--orange)}
+    h1{font-size:clamp(2.75rem,6vw,5.4rem);line-height:.96;letter-spacing:-.06em;margin:17px 0 24px}
+    h1 span{color:var(--orange)}
+    .hero p{max-width:690px;color:#d8dade;font-size:1.16rem;margin:0 0 30px}
+    .buttons{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{min-height:49px;display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:11px;text-decoration:none;font-weight:850;border:1px solid transparent;cursor:pointer;font:inherit}
+    .btn-primary{background:var(--orange);color:#fff}
+    .btn-secondary{background:transparent;border-color:#555a5f;color:#fff}
+    .btn-light{background:#fff;color:var(--black)}
+    .hero-card{border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.055);border-radius:28px;padding:30px;box-shadow:0 30px 90px rgba(0,0,0,.28)}
+    .hero-logo{display:block;width:min(285px,80%);margin:0 auto 18px}
+    .hero-card h2{font-size:1.35rem;text-align:center;margin:0 0 7px;letter-spacing:-.02em}
+    .hero-card p{text-align:center;color:#bfc4c8;font-size:.92rem;margin:0}
+    .hero-stat{margin-top:23px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:center}
+    .hero-stat strong{display:block;color:var(--yellow);font-size:1.1rem}.hero-stat span{font-size:.78rem;color:#aeb3b8}
+
+    section{padding:84px 20px}
+    .inner{max-width:1160px;margin:auto}
+    .kicker{color:var(--orange);font-weight:900;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+    h2{font-size:clamp(2rem,4vw,3.15rem);line-height:1.03;letter-spacing:-.04em;margin:0 0 15px}
+    .lead{color:var(--muted);max-width:760px;font-size:1.06rem}
+    .dark-section{background:var(--black);color:#fff}
+    .dark-section .lead{color:#bdc2c6}
+
+    .audiences{background:var(--off)}
+    .audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px}
+    .audience{background:#fff;border:1px solid var(--line);border-radius:24px;padding:31px;box-shadow:0 8px 25px rgba(0,0,0,.04)}
+    .audience.featured{border-top:4px solid var(--orange)}
+    .audience h3{font-size:1.5rem;margin:0 0 8px}
+    .audience p{color:var(--muted);margin:0 0 19px}
+    .audience ul{margin:0;padding:0;list-style:none}
+    .audience li{padding:8px 0;border-top:1px solid #eee;font-weight:650}
+    .audience li:before{content:"✓";color:var(--orange);font-weight:900;margin-right:9px}
+
+    .services{background:#fff}
+    .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px}
+    .service{border:1px solid var(--line);border-radius:18px;padding:23px;min-height:190px}
+    .icon{width:45px;height:45px;display:grid;place-items:center;border-radius:12px;background:#fff0d7;color:var(--orange);font-size:1.2rem;margin-bottom:17px}
+    .service h3{margin:0 0 7px;font-size:1.06rem}.service p{margin:0;color:var(--muted);font-size:.92rem}
+    .service-foot{margin-top:22px;padding:14px 16px;border-left:3px solid var(--orange);background:var(--off);color:#4e555a;font-size:.9rem}
+
+    .value{background:var(--off)}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+    .checks{list-style:none;padding:0;margin:27px 0 0}
+    .checks li{display:flex;gap:12px;margin:14px 0;font-weight:650}
+    .check{flex:0 0 24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--orange);color:#fff;font-size:.78rem}
+    .value-card{background:var(--black);color:#fff;border-radius:26px;padding:35px;box-shadow:var(--shadow)}
+    .value-card h3{font-size:1.65rem;line-height:1.1;margin:0 0 14px}
+    .value-card p{color:#c7cbcf}
+    .quote{font-size:1.15rem;font-weight:800;color:#fff;border-left:3px solid var(--orange);padding-left:16px;margin-top:22px}
+
+    .steps{background:#fff}
+    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:32px}
+    .step{border:1px solid var(--line);border-radius:20px;padding:28px}
+    .number{color:var(--orange);font-size:.75rem;font-weight:950;letter-spacing:.12em}
+    .step h3{font-size:1.2rem;margin:9px 0 7px}.step p{color:var(--muted);margin:0}
+
+    .pricing{background:var(--black);color:#fff}
+    .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+    .price-card{border:1px solid #36393c;border-radius:24px;padding:32px;background:#121416}
+    .price{font-size:3.7rem;font-weight:950;letter-spacing:-.06em;line-height:1}.price small{font-size:1rem;color:#aeb3b8;letter-spacing:0}
+    .price-card p{color:#c4c8cb}.price-note{border-left:3px solid var(--orange);padding-left:15px;font-size:.9rem;color:#dfe1e3}
+    .payment-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.pill{border:1px solid #3b3e41;padding:7px 11px;border-radius:999px;font-size:.82rem;color:#dfe2e4}
+
+    .territory{background:var(--off)}
+    .territory-box{margin-top:30px;background:#fff;border:1px solid var(--line);border-radius:25px;padding:31px;position:relative;overflow:hidden}
+    .ring{position:absolute;width:500px;height:290px;right:-100px;top:-80px;border:2px dashed rgba(242,138,0,.32);border-radius:50%;transform:rotate(-8deg)}
+    .cities{position:relative;display:flex;flex-wrap:wrap;gap:9px;margin-top:18px;max-width:800px}
+    .city{padding:8px 12px;border:1px solid #deded9;border-radius:999px;background:#fff;font-weight:700;font-size:.9rem}
+
+    .about{background:#fff}
+    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:45px;align-items:start}
+    .about-box{border:1px solid var(--line);border-radius:23px;padding:30px;background:var(--off)}
+    .about-box strong{display:block;color:var(--orange);text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;margin-bottom:9px}
+    .about-box h3{margin:0 0 10px;font-size:1.45rem}
+
+    .contact{background:var(--off)}
+    .contact-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:45px;align-items:start}
+    .contact-card{background:var(--black);color:#fff;border-radius:25px;padding:31px}
+    .contact-item{margin:20px 0}.contact-item strong{display:block;color:var(--yellow);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+    .contact-item a{color:#fff;text-decoration:none;font-size:1.08rem}
+    form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field{display:flex;flex-direction:column;gap:6px}.full{grid-column:1/-1}
+    label{font-size:.86rem;font-weight:800}
+    input,select,textarea{width:100%;padding:12px 13px;border:1px solid #d7d8d4;border-radius:10px;background:#fff;color:var(--text);font:inherit;outline:none}
+    textarea{min-height:125px;resize:vertical}
+    input:focus,select:focus,textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(242,138,0,.12)}
+    .form-note{font-size:.8rem;color:var(--muted);margin:0}
+
+    footer{background:#08090a;color:#adb2b6;padding:28px 20px;font-size:.83rem}
+    .footer-inner{max-width:1160px;margin:auto;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .footer-inner strong{color:#fff}
+
+    @media(max-width:900px){
+      .navlinks{display:none}.hero-inner,.split,.pricing-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+      .hero-inner{min-height:auto}.service-grid{grid-template-columns:1fr 1fr}.audience-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:580px){
+      section{padding:62px 18px}.hero-inner{padding:56px 18px 62px}.service-grid,.steps-grid,form{grid-template-columns:1fr}
+      .full{grid-column:auto}.hero-logo{width:74%}.price{font-size:3rem}.ring{width:330px;height:210px}
+    }
+  </style>
 </head>
 <body>
-  <h1>Bienvenu sur Groupe MDQ</h1>
-  <p>Notre site arrive bientôt!</p>
+  <div class="topbar"><strong>Soirs et fins de semaine</strong> · Service mobile sur rendez-vous · Montérégie</div>
+
+  <header>
+    <nav>
+      <a class="brand" href="#accueil">
+        <img src="logo-groupe-mdq.png" alt="Logo Groupe MDQ">
+        <span>GROUPE MDQ<small>MÉCANIQUE MOBILE</small></span>
+      </a>
+      <div class="navlinks">
+        <a href="#services">Services</a>
+        <a href="#entreprises">Entreprises</a>
+        <a href="#territoire">Territoire</a>
+        <a href="#soumission" class="nav-cta">Demander une soumission</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">Mécanique mobile</div>
+          <h1>Votre flotte roule.<br><span>Votre entreprise aussi.</span></h1>
+          <p>
+            Entretien préventif et mécanique mobile directement chez vous ou sur votre lieu de travail.
+            <strong>Moins de temps immobilisé. Plus de contrôle sur l'entretien.</strong>
+          </p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="#soumission">Demander une soumission</a>
+            <a class="btn btn-secondary" href="tel:+15146522302">514-652-2302</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img class="hero-logo" src="logo-groupe-mdq.png" alt="Groupe MDQ">
+          <h2>Entretien · Réparation · Fiabilité</h2>
+          <p>Un service mobile conçu pour les gens qui ont autre chose à faire qu'attendre au garage.</p>
+          <div class="hero-stat">
+            <div><strong>80 $/h</strong><span>main-d'œuvre</span></div>
+            <div><strong>100 % mobile</strong><span>chez vous ou votre entreprise</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="audiences" id="entreprises">
+      <div class="inner">
+        <div class="kicker">Deux besoins, un même service</div>
+        <h2>Votre véhicule est un outil. Nous l'entretenons là où il se trouve.</h2>
+        <p class="lead">
+          Groupe MDQ s'adresse autant aux propriétaires qui veulent gagner du temps qu'aux petites entreprises
+          qui veulent garder leurs véhicules disponibles.
+        </p>
+
+        <div class="audience-grid">
+          <article class="audience featured">
+            <div class="kicker">Pour les entreprises</div>
+            <h3>Petites flottes</h3>
+            <p>Vous avez quelques voitures, pick-up ou fourgonnettes de service? Planifiez l'entretien sans sortir vos véhicules de votre cour.</p>
+            <ul>
+              <li>Entretien préventif</li>
+              <li>Interventions planifiées le soir ou la fin de semaine</li>
+              <li>Réduction du temps d'immobilisation</li>
+              <li>Suivi des problèmes à prévoir</li>
+            </ul>
+            <a class="btn btn-primary" href="#soumission" style="margin-top:20px">Parler de ma flotte</a>
+          </article>
+
+          <article class="audience">
+            <div class="kicker">Pour les particuliers</div>
+            <h3>Votre temps compte aussi.</h3>
+            <p>Pas envie de prendre congé, attendre au garage ou organiser un transport? Nous venons à vous.</p>
+            <ul>
+              <li>Service à domicile ou au travail</li>
+              <li>Soirs et fins de semaine</li>
+              <li>Soumission avant les travaux</li>
+              <li>Paiement simple à la fin de l'intervention</li>
+            </ul>
+            <a class="btn btn-secondary" href="#soumission" style="margin-top:20px;background:var(--black);color:#fff">Demander une soumission</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="inner">
+        <div class="kicker">Services</div>
+        <h2>Entretenir avant que le problème devienne une panne.</h2>
+        <p class="lead">Nous nous concentrons sur l'entretien préventif, le diagnostic et les réparations courantes réalisables en contexte mobile.</p>
+
+        <div class="service-grid">
+          <article class="service">
+            <div class="icon">◉</div>
+            <h3>Changement d'huile</h3>
+            <p>Entretien courant et remplacement des filtres selon les besoins du véhicule.</p>
+          </article>
+          <article class="service">
+            <div class="icon">✚</div>
+            <h3>Entretien des freins</h3>
+            <p>Inspection, entretien et remplacement des composants de freinage courants.</p>
+          </article>
+          <article class="service">
+            <div class="icon">⚡</div>
+            <h3>Batterie & démarrage</h3>
+            <p>Diagnostic de batterie, démarrage et système de charge pour identifier la cause du problème.</p>
+          </article>
+          <article class="service">
+            <div class="icon">⚙</div>
+            <h3>Petits moteurs</h3>
+            <p>Entretien et diagnostic de petits moteurs et d'équipements motorisés.</p>
+          </article>
+        </div>
+        <div class="service-foot"><strong>Important :</strong> Groupe MDQ ne fait pas l'entretien des véhicules lourds. Pour un travail qui dépasse le cadre du service mobile, nous vous le dirons avant l'intervention.</div>
+      </div>
+    </section>
+
+    <section class="value">
+      <div class="inner split">
+        <div>
+          <div class="kicker">La valeur du préventif</div>
+          <h2>Un véhicule immobilisé coûte plus que sa réparation.</h2>
+          <p class="lead">
+            Pour une entreprise, une panne peut signifier une journée perdue, un rendez-vous déplacé ou un employé sans outil de travail.
+          </p>
+          <ul class="checks">
+            <li><span class="check">✓</span><span>Planifier les dépenses plutôt que subir les urgences</span></li>
+            <li><span class="check">✓</span><span>Repérer les problèmes avant l'immobilisation</span></li>
+            <li><span class="check">✓</span><span>Faire l'entretien sans déplacer le véhicule au garage</span></li>
+            <li><span class="check">✓</span><span>Garder vos véhicules disponibles pour travailler</span></li>
+          </ul>
+        </div>
+        <aside class="value-card">
+          <div class="kicker">Notre philosophie</div>
+          <h3>Diagnostiquer. Entretenir. Prévenir.</h3>
+          <p>
+            Nous ne cherchons pas seulement à remettre un véhicule sur la route.
+            L'objectif est de comprendre le problème, intervenir efficacement et réduire les risques de récidive.
+          </p>
+          <div class="quote">« L'entretien préventif est un outil pour protéger la marge de profit d'une entreprise. »</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="steps">
+      <div class="inner">
+        <div class="kicker">Comment ça fonctionne</div>
+        <h2>Simple. Transparent. Mobile.</h2>
+        <div class="steps-grid">
+          <article class="step">
+            <div class="number">01 — CONTACT</div>
+            <h3>Vous nous décrivez le besoin</h3>
+            <p>Véhicule, kilométrage, travail demandé et ville. Quelques détails suffisent pour commencer.</p>
+          </article>
+          <article class="step">
+            <div class="number">02 — PLANIFICATION</div>
+            <h3>Nous validons la job</h3>
+            <p>Nous confirmons les pièces, l'estimation et une plage de rendez-vous adaptée à vos disponibilités.</p>
+          </article>
+          <article class="step">
+            <div class="number">03 — INTERVENTION</div>
+            <h3>Nous venons à vous</h3>
+            <p>Le travail est effectué directement chez vous ou votre entreprise. Les pièces sont payées à la réservation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing">
+      <div class="inner pricing-grid">
+        <div>
+          <div class="kicker">Tarification claire</div>
+          <h2>Vous payez pour le travail, pas pour une salle d'attente.</h2>
+          <p class="lead">
+            Notre tarif de main-d'œuvre est de 80 $/heure, avec un minimum de 1 h 30.
+            Les pièces sont en sus et sont payées à la réservation.
+          </p>
+          <p class="price-note">
+            Des frais de déplacement peuvent s'appliquer pour les interventions à l'extérieur du territoire principal.
+          </p>
+        </div>
+        <div class="price-card">
+          <div class="price">80 $<small> / heure</small></div>
+          <p><strong>Minimum de 1 h 30.</strong> Main-d'œuvre. Pièces en sus.</p>
+          <div class="payment-pills">
+            <span class="pill">Interac</span>
+            <span class="pill">Carte de crédit</span>
+            <span class="pill">Comptant</span>
+          </div>
+          <a class="btn btn-primary" href="#soumission" style="margin-top:22px">Obtenir une estimation</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="territory" id="territoire">
+      <div class="inner">
+        <div class="kicker">Territoire</div>
+        <h2>On vient à vous.</h2>
+        <p class="lead">
+          Le territoire principal couvre le secteur compris entre <strong>Saint-Hyacinthe, Granby et Saint-Jean-sur-Richelieu</strong>.
+          Si vous êtes à l'extérieur de cette zone, contactez-nous : un déplacement peut être possible.
+        </p>
+        <div class="territory-box">
+          <div class="ring" aria-hidden="true"></div>
+          <strong>Principaux secteurs desservis</strong>
+          <div class="cities">
+            <span class="city">Saint-Césaire</span>
+            <span class="city">Marieville</span>
+            <span class="city">Rougemont</span>
+            <span class="city">Saint-Hyacinthe</span>
+            <span class="city">Granby</span>
+            <span class="city">Chambly</span>
+            <span class="city">Richelieu</span>
+            <span class="city">Saint-Jean-sur-Richelieu</span>
+            <span class="city">Farnham</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="inner about-grid">
+        <div>
+          <div class="kicker">À propos de Groupe MDQ</div>
+          <h2>Une expérience pratique tournée vers le diagnostic.</h2>
+          <p class="lead">
+            Après plusieurs années dans le transport et à travers différents projets techniques,
+            Groupe MDQ est né d'un intérêt marqué pour le diagnostic et la résolution de problèmes.
+          </p>
+          <p>
+            L'expérience acquise avec les véhicules, la mécanique et différents systèmes techniques
+            nourrit une approche simple : <strong>comprendre le problème, intervenir efficacement et prévenir le prochain.</strong>
+          </p>
+        </div>
+        <div class="about-box">
+          <strong>Notre objectif</strong>
+          <h3>Faire rouler ce qui vous permet de travailler.</h3>
+          <p>
+            Pour un particulier comme pour une petite entreprise, un véhicule fiable offre surtout une chose :
+            la liberté de continuer sa journée sans interruption inutile.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="soumission">
+      <div class="inner contact-grid">
+        <div>
+          <div class="kicker">Demande de soumission</div>
+          <h2>Parlez-nous de votre véhicule.</h2>
+          <p class="lead">
+            Remplissez le formulaire. Votre demande sera préparée dans votre application courriel et envoyée directement à Groupe MDQ.
+          </p>
+          <div class="contact-card">
+            <div class="contact-item"><strong>Téléphone</strong><a href="tel:+15146522302">514-652-2302</a></div>
+            <div class="contact-item"><strong>Courriel</strong><a href="mailto:info@groupemdq.ca">info@groupemdq.ca</a></div>
+            <div class="contact-item"><strong>Disponibilités</strong>Soirs et fins de semaine · Sur rendez-vous</div>
+          </div>
+        </div>
+
+        <form id="quoteForm">
+          <div class="field"><label for="name">Nom *</label><input id="name" name="name" required autocomplete="name"></div>
+          <div class="field"><label for="phone">Téléphone *</label><input id="phone" name="phone" required autocomplete="tel"></div>
+          <div class="field"><label for="email">Courriel</label><input id="email" name="email" type="email" autocomplete="email"></div>
+          <div class="field"><label for="clientType">Type de client *</label>
+            <select id="clientType" name="clientType" required>
+              <option value="">Choisir…</option><option>Particulier</option><option>Travailleur autonome</option><option>Entreprise / petite flotte</option>
+            </select>
+          </div>
+          <div class="field"><label for="vehicle">Véhicule / équipement *</label><input id="vehicle" name="vehicle" placeholder="Ex. Honda Civic 2018" required></div>
+          <div class="field"><label for="km">Kilométrage / heures</label><input id="km" name="km" placeholder="Ex. 142 000 km"></div>
+          <div class="field"><label for="service">Service recherché *</label>
+            <select id="service" name="service" required>
+              <option value="">Choisir…</option><option>Changement d'huile</option><option>Entretien des freins</option><option>Batterie / démarrage</option><option>Entretien préventif</option><option>Diagnostic</option><option>Petits moteurs</option><option>Autre</option>
+            </select>
+          </div>
+          <div class="field"><label for="location">Ville *</label><input id="location" name="location" required placeholder="Ex. Saint-Césaire"></div>
+          <div class="field full"><label for="description">Travail ou problème *</label><textarea id="description" name="description" required placeholder="Symptômes, entretien souhaité, voyant allumé, etc."></textarea></div>
+          <div class="field"><label for="availability">Disponibilité souhaitée</label><input id="availability" name="availability" placeholder="Ex. samedi matin"></div>
+          <div class="field"><label for="fleet">Nombre de véhicules</label><input id="fleet" name="fleet" type="number" min="1" placeholder="Pour une flotte, ex. 5"></div>
+          <div class="full"><p class="form-note">Aucune donnée n'est stockée sur ce site. Le bouton prépare simplement un courriel à info@groupemdq.ca.</p></div>
+          <div class="full"><button class="btn btn-primary" type="submit">Préparer ma demande de soumission</button></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div><strong>Groupe MDQ — Mécanique mobile</strong><br>Entretien · Réparation · Fiabilité</div>
+      <div>514-652-2302 · info@groupemdq.ca</div>
+      <div>© <span id="year"></span> Groupe MDQ inc.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("quoteForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const d = new FormData(this);
+      const subject = "Demande de soumission — " + d.get("vehicle");
+      const body =
+`Bonjour Groupe MDQ,
+
+Je souhaite obtenir une soumission.
+
+Type de client : ${d.get("clientType")}
+Nom : ${d.get("name")}
+Téléphone : ${d.get("phone")}
+Courriel : ${d.get("email") || "Non fourni"}
+Ville : ${d.get("location")}
+
+Véhicule / équipement : ${d.get("vehicle")}
+Kilométrage / heures : ${d.get("km") || "Non fourni"}
+Service recherché : ${d.get("service")}
+Nombre de véhicules : ${d.get("fleet") || "N/A"}
+
+Travail / problème :
+${d.get("description")}
+
+Disponibilité souhaitée : ${d.get("availability") || "À discuter"}
+
+Merci,
+${d.get("name")}`;
+
+      window.location.href =
+        "mailto:info@groupemdq.ca?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+    });
+  </script>
 </body>
 </html>
